@@ -2,12 +2,32 @@ package Proxy;
 
 public class Proxy implements iProxy{
 	
-	RealProxy realProxy = new RealProxy();
+	private RealProxy realProxy;
 
-	@Override
-	public void darBienvenida() {
-		System.out.println("ANTES : TE VOY A DAR LA BIENVENIDA"); 
-		realProxy.darBienvenida();
-	}
+    public Proxy() {
+        this.realProxy = new RealProxy();
+    }
+    
+    @Override 
+    public void despedida() {
+    	
+    }
 
+    @Override
+    public void darBienvenida() {
+        before();
+        realProxy.darBienvenida();
+        after();
+        realProxy.despedida();
+    }
+
+    private void before() {
+        System.out.println("- Antes de llamar al metodo darBienvenida() \n");
+    }
+
+    private void after() {
+        System.out.println("- Despues de llamar al metodo darBienvenida() \n");
+    }
 }
+
+
