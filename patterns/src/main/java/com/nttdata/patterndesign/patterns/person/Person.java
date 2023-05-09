@@ -2,7 +2,6 @@ package com.nttdata.patterndesign.patterns.person;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @Builder
